@@ -1,4 +1,4 @@
-# Synth Visualizer Dashboard
+# Synth Dashboard
 ## Features
 
 - **Real-Time MIDI Feedback**:
