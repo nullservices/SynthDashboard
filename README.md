@@ -1,7 +1,4 @@
 # Synth Visualizer Dashboard
-
-Welcome to the **Synth Visualizer Dashboard**! This is a sleek and interactive MIDI visualization app built with Vue.js and Nuxt.js, designed to provide real-time feedback for your synths like the **Arturia MicroFreak** and **KORG NTS-1**. Perfect for live performances, streaming setups, or just having fun with your gear!
-
 ## Features
 
 - **Real-Time MIDI Feedback**:
@@ -13,10 +10,7 @@ Welcome to the **Synth Visualizer Dashboard**! This is a sleek and interactive M
   - Organized layout to match the physical synths' design.
 
 - **Compatibility**:
-  - Works with Arturia MicroFreak, KORG NTS-1, and other MIDI devices.
-
-- **Stream Ready**:
-  - Compatible with OBS via browser source to integrate into your live streams.
+  - Works with Arturia MicroFreak or KORG NTS-1.
 
 ## Visual Previews
 
@@ -26,11 +20,6 @@ Welcome to the **Synth Visualizer Dashboard**! This is a sleek and interactive M
 ### KORG NTS-1
 ![KORG NTS-1 Visualization](https://github.com/nullservices/SynthDashboard/blob/main/public/NTS1-Capture.gif?raw=true)
 
-## Requirements
-
-1. **Vue.js / Nuxt.js Environment**: Ensure you have Node.js installed to run the app locally.
-2. **MIDI Setup**: Connect your Arturia MicroFreak or KORG NTS-1 via USB to your computer.
-3. **OBS Integration (Optional)**: Configure OBS with a local web server to stream live visualizations.
 
 ## Installation
 
