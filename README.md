@@ -25,8 +25,8 @@
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/synth-visualizer-dashboard.git
-   cd synth-visualizer-dashboard
+   git clone https://github.com/nullservices/SynthDashboard.git
+   cd SynthDashboard
 
 2. Install dependencies:
    ```bash
