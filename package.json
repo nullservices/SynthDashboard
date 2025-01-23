@@ -4,15 +4,21 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "concurrently \"node server/midi-gateway.js\" \"nuxt dev\"",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
     "@tonejs/midi": "^2.0.28",
+    "axios": "^1.7.9",
+    "body-parser": "^1.20.3",
+    "concurrently": "^9.1.2",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
     "nuxt": "^3.15.2",
     "vue": "latest",
-    "vue-router": "latest"
+    "vue-router": "latest",
+    "webmidi": "^3.1.12"
   }
 }

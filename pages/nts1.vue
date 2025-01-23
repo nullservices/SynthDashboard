@@ -34,7 +34,6 @@
 
 <script>
 import { onMounted, ref } from "vue";
-import { initializeMIDI } from "~/util/midi";
 
 export default {
   setup() {
@@ -42,7 +41,43 @@ export default {
     const delay = ref({ type: "Off", knobA: 0, knobB: 0 });
     const reverb = ref({ type: "Off", knobA: 0, knobB: 0 });
 
+    const connectWebSocket = () => {
+      const ws = new WebSocket("ws://localhost:4000");
+
+      ws.onopen = () => {
+        console.log("WebSocket connection established.");
+      };
+
+      ws.onmessage = (event) => {
+        try {
+          const data = JSON.parse(event.data);
+
+          // Process only messages for the "NTS-1 digital kit" device
+          if (data.device === "NTS-1 digital kit") {
+            console.log("MIDI Message Received:", data.message);
+
+            if (data.message[0] === 176) {
+              // Process only "control change" messages
+              handleMIDIMessage(data.message[1], data.message[2]);
+            }
+          }
+        } catch (error) {
+          console.error("Error processing WebSocket message:", error);
+        }
+      };
+
+      ws.onclose = () => {
+        console.log("WebSocket connection closed. Reconnecting...");
+        setTimeout(connectWebSocket, 1000);
+      };
+
+      ws.onerror = (error) => {
+        console.error("WebSocket error:", error);
+      };
+    };
+
     const handleMIDIMessage = (control, value) => {
+      console.log("Processing MIDI Message:", { control, value });
       switch (control) {
         case 88:
           modulation.value.type = mapModulation(value);
@@ -106,7 +141,7 @@ export default {
     };
 
     onMounted(() => {
-      initializeMIDI(handleMIDIMessage);
+      connectWebSocket();
     });
 
     return { modulation, delay, reverb, getKnobStyle };

@@ -9,7 +9,6 @@
 <script>
 import Knobs from "~/components/Knobs.vue";
 import Keyboard from "~/components/Keyboard.vue";
-import { initializeMIDI } from "~/util/midi";
 
 export default {
   components: { Knobs, Keyboard },
@@ -40,7 +39,6 @@ export default {
   },
   methods: {
     handleMIDIMessage(control, value, type) {
-      
       if (type === "note_on") {
         const note = control;
         if (value > 0) {
@@ -54,8 +52,7 @@ export default {
         const note = control;
         this.activeKeys = this.activeKeys.filter((key) => key !== note);
         this.$delete(this.velocityValues, note);
-      }
-      if (type === "control_change") {
+      } else if (type === "control_change") {
         const knob = this.knobs.find((k) => k.id === control);
         if (knob) {
           knob.value = value;
@@ -63,11 +60,41 @@ export default {
         }
       }
     },
+    connectWebSocket() {
+      const ws = new WebSocket("ws://localhost:4000");
+
+      ws.onopen = () => {
+        console.log("WebSocket connection established.");
+      };
+
+      ws.onmessage = (event) => {
+        const data = JSON.parse(event.data);
+
+        // Filter messages for the Arturia MicroFreak
+        if (data.device === "Arturia MicroFreak") {
+          const [status, control, value] = data.message;
+
+          if (status === 144) {
+            // Note ON
+            this.handleMIDIMessage(control, value, "note_on");
+          } else if (status === 128) {
+            // Note OFF
+            this.handleMIDIMessage(control, value, "note_off");
+          } else if (status === 176) {
+            // Control Change
+            this.handleMIDIMessage(control, value, "control_change");
+          }
+        }
+      };
+
+      ws.onclose = () => {
+        console.log("WebSocket connection closed. Reconnecting...");
+        setTimeout(this.connectWebSocket, 1000);
+      };
+    },
   },
   mounted() {
-    initializeMIDI((control, value, type) => {
-      this.handleMIDIMessage(control, value, type);
-    });
+    this.connectWebSocket();
   },
 };
 </script>

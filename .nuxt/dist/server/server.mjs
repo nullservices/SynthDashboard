@@ -1,1 +1,1 @@
-export { default } from "file:///C:/Users/theot/Desktop/Projects/synth-dashboard/node_modules/@nuxt/vite-builder/dist/runtime/vite-node.mjs"
+export { default } from "file:///C:/Users/theot/Desktop/Projects/SynthDashboard/node_modules/@nuxt/vite-builder/dist/runtime/vite-node.mjs"
