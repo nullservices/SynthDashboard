@@ -21,10 +21,10 @@ Welcome to the **Synth Visualizer Dashboard**! This is a sleek and interactive M
 ## Visual Previews
 
 ### Arturia MicroFreak
-![Arturia MicroFreak Visualization](./assets/Microfreak-Capture.gif)
+![Arturia MicroFreak Visualization](https://github.com/nullservices/SynthDashboard/blob/main/public/Microfreak%20Capture.gif?raw=true)
 
 ### KORG NTS-1
-![KORG NTS-1 Visualization](./assets/NTS1-Capture.gif)
+![KORG NTS-1 Visualization](https://github.com/nullservices/SynthDashboard/blob/main/public/NTS1-Capture.gif?raw=true)
 
 ## Requirements
 
