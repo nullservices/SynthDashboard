@@ -1,75 +1,55 @@
-# Nuxt Minimal Starter
+# Synth Visualizer Dashboard
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Welcome to the **Synth Visualizer Dashboard**! This is a sleek and interactive MIDI visualization app built with Vue.js and Nuxt.js, designed to provide real-time feedback for your synths like the **Arturia MicroFreak** and **KORG NTS-1**. Perfect for live performances, streaming setups, or just having fun with your gear!
 
-## Setup
+## Features
 
-Make sure to install dependencies:
+- **Real-Time MIDI Feedback**:
+  - Display key presses with dynamic visualizations.
+  - Monitor velocity and knob changes live as you tweak your synth.
 
-```bash
-# npm
-npm install
+- **Detailed Controls**:
+  - Visual representation of all major knobs and parameters.
+  - Organized layout to match the physical synths' design.
 
-# pnpm
-pnpm install
+- **Compatibility**:
+  - Works with Arturia MicroFreak, KORG NTS-1, and other MIDI devices.
 
-# yarn
-yarn install
+- **Stream Ready**:
+  - Compatible with OBS via browser source to integrate into your live streams.
 
-# bun
-bun install
-```
+## Visual Previews
 
-## Development Server
+### Arturia MicroFreak
+![Arturia MicroFreak Visualization](./assets/Microfreak-Capture.gif)
 
-Start the development server on `http://localhost:3000`:
+### KORG NTS-1
+![KORG NTS-1 Visualization](./assets/NTS1-Capture.gif)
 
-```bash
-# npm
-npm run dev
+## Requirements
 
-# pnpm
-pnpm dev
+1. **Vue.js / Nuxt.js Environment**: Ensure you have Node.js installed to run the app locally.
+2. **MIDI Setup**: Connect your Arturia MicroFreak or KORG NTS-1 via USB to your computer.
+3. **OBS Integration (Optional)**: Configure OBS with a local web server to stream live visualizations.
 
-# yarn
-yarn dev
+## Installation
 
-# bun
-bun run dev
-```
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/synth-visualizer-dashboard.git
+   cd synth-visualizer-dashboard
 
-## Production
+2. Install dependencies:
+   ```bash
+   npm install
 
-Build the application for production:
+ 3. Start the development server:
+    ```bash
+    npm run dev
 
-```bash
-# npm
-npm run build
+ 4. Open your browser and navigate to:
+    ```bash
+    http://localhost:3000/microfreak
+    http://localhost:3000/nts1
 
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+    
